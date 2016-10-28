@@ -55,12 +55,12 @@
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-						<a href="index.php"><img src="images/logo_final.png" style="height:75px;width:100px;margin-left:0px;"alt="IIT Mandi Logo"></a><!-- START #fh5co-menu-wrap -->
+						<a href="index.php"><img src="images/logo_final.png" style="height:75px;width:100px;margin-left:-75px;"alt="IIT Mandi Logo"></a><!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
 								<li><a href="#" class="fh5co-sub-ddown">HOME</a></li>
-								<li><a href="#" class="fh5co-sub-ddown">LOGIN</a></li>
-								<li><a href="#" class="fh5co-sub-ddown">SIGNUP</a></li>
+								<li><a href="#login_form" class="fh5co-sub-ddown">LOGIN</a></li>
+								<li><a href="#/templates/signup.php" class="fh5co-sub-ddown">SIGNUP</a></li>
 								<li><a href="index.php?r=archive/gallery">QUICK PAY</a></li>
 							</ul>
 						</nav>
@@ -84,124 +84,54 @@
   </div>
 
 </div>
-<div id="fh5co-blog-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-          <h3>DAYS TO INTER IIT</h3>
-        </div>
-      </div>
-            <div class="row">
-        <div class="col-md-12 text-center animate-box" style="margin-left: 15%;">
-            <div class="countdown">
-              <div class="bloc-time days" data-init-value="44">
-                <span class="count-title">Days</span>
-
-                <div class="figure days days-1">
-                  <span class="top">4</span>
-                  <span class="top-back">
-                    <span>4</span>
-                  </span>
-                  <span class="bottom">4</span>
-                  <span class="bottom-back">
-                    <span>4</span>
-                  </span>
-                </div>
-
-                <div class="figure days days-2">
-                  <span class="top">4</span>
-                  <span class="top-back">
-                    <span>4</span>
-                  </span>
-                  <span class="bottom">4</span>
-                  <span class="bottom-back">
-                    <span>4</span>
-                  </span>
-                </div>
-              </div>
-
-              <div class="bloc-time hours" data-init-value="9">
-                <span class="count-title">Hours</span>
-
-                <div class="figure hours hours-1">
-                  <span class="top">0</span>
-                  <span class="top-back">
-                    <span>0</span>
-                  </span>
-                  <span class="bottom">0</span>
-                  <span class="bottom-back">
-                    <span>0</span>
-                  </span>
-                </div>
-
-                <div class="figure hours hours-2">
-                  <span class="top">4</span>
-                  <span class="top-back">
-                    <span>4</span>
-                  </span>
-                  <span class="bottom">4</span>
-                  <span class="bottom-back">
-                    <span>4</span>
-                  </span>
-                </div>
-              </div>
-
-              <div class="bloc-time min" data-init-value="54">
-                <span class="count-title">Minutes</span>
-
-                <div class="figure min min-1">
-                  <span class="top">5</span>
-                  <span class="top-back">
-                    <span>5</span>
-                  </span>
-                  <span class="bottom">5</span>
-                  <span class="bottom-back">
-                    <span>5</span>
-                  </span>
-                </div>
-
-                <div class="figure min min-2">
-                 <span class="top">4</span>
-                  <span class="top-back">
-                    <span>4</span>
-                  </span>
-                  <span class="bottom">4</span>
-                  <span class="bottom-back">
-                    <span>4</span>
-                  </span>
-                </div>
-              </div>
-
-              <div class="bloc-time sec" data-init-value="32">
-                <span class="count-title">Seconds</span>
-
-                  <div class="figure sec sec-1">
-                  <span class="top">3</span>
-                  <span class="top-back">
-                    <span>3</span>
-                  </span>
-                  <span class="bottom">3</span>
-                  <span class="bottom-back">
-                    <span>3</span>
-                  </span>
-                </div>
-
-                <div class="figure sec sec-2">
-                  <span class="top">4</span>
-                  <span class="top-back">
-                    <span>4</span>
-                  </span>
-                  <span class="bottom">4</span>
-                  <span class="bottom-back">
-                    <span>4</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+	<div class="col-md-12 text-center animate-box">
+		<div class="jumbotron" id="login_form">
+			<div class="button button-primary">
+				<form class="form-signin" action="#" method="post">
+					<div class="form-group">
+						<label for="user_name" class="sr-only">UserName</label>
+						<input type="text" name="user_name" id="login_user_name" class="form-control" placeholder="UserName" required> 
+						<label for="user_pass" class="sr-only">Password</label>
+						<input type="password" name="user_pass" id="login_user_pass" class="form-control" placeholder="Password" required>
+						<center><button id="login_button" class="btn btn-primary" type="submit">Login</button></center>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12 text-center animate-box">
+		<div class="jumbotron" id="signup_form">
+			<div class="button button-primary">
+				<form class="form-signup" action="#" method="post">
+					<div class="form-group">
+						<label for="Name" class="sr-only">Name</label>
+						<input type="text" name="Name" id="signup_name" class="form-control" placeholder="Name" required> 
+						<label for="Signup_email" class="sr-only">Email</label>
+						<input type="email" name="Signup_email" id="login_user_pass" class="form-control" placeholder="xyz@iitmandi.ac.in" required>
+						<label for="Mobile" class="sr-only">Mobile</label>
+						<input type="tel" name="Mobile" id="signup_name" class="form-control" placeholder="Mobile" required> 
+						<label class="col-xs-3 control-label">Gender</label>
+				        <div class="col-xs-9">
+				            <div class="btn-group" data-toggle="buttons">
+				                <label class="btn btn-default">
+				                    <input type="radio" name="gender" value="male" /> Male
+				                </label>
+				                <label class="btn btn-default">
+				                    <input type="radio" name="gender" value="female" /> Female
+				                </label>
+				                <label class="btn btn-default">
+				                    <input type="radio" name="gender" value="other" /> Other
+				                </label>
+				            </div>
+				        </div>
+						<center><button id="login_button" class="btn btn-primary" type="submit">Login</button></center>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
             <div id="fh5co-blog-section">
               <div class="container">
@@ -322,7 +252,6 @@
         				</div>
         			</div>
         		</div>
-            <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Go to the top of the page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 </body>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/TweenMax.min.js"></script>
