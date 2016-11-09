@@ -44,7 +44,7 @@
         $('#back-to-top').click(function () {
             $('#back-to-top').tooltip('hide');
             $('body,html').animate({
-                scrollTop: 0
+                scrollTop: 1000
             }, 800);
             return false;
         });

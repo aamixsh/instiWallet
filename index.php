@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8"> 
+	<meta charset="utf-8">
 	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="InstiWallet">
 
@@ -49,18 +50,18 @@
 		<div id="fh5co-page">
 		<div id="fh5co-header">
 			<header id="fh5co-header-section">
-				<div class="container" style="min-width:90%;">
+				<div class="container" style="min-width:90%">
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-						<a href="http://iitmandi.ac.in"><img src="images/logo_final.png" style="height:75px;width:100px;margin-left:-75px;"alt="IIT Mandi Logo"></a><!-- START #fh5co-menu-wrap -->
+						<a href="index.php"><img src="images/logo_final.png" style="height:75px;width:100px;margin-left:-75px;"alt="IIT Mandi Logo"></a><!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
-								<li><a href="#" class="text-glow-hover">HOME</a></li>
-								<li><a id="back-to-top" href="#login_form" class="text-glow-hover">LOGIN</a></li>
-								<li><a id="back-to-top" href="#signup_form" class="text-glow-hover">SIGNUP</a></li>
-								<li><a href="index.php?r=archive/gallery" class="text-glow-hover">QUICK PAY</a></li>
+								<li><a href="#" class="fh5co-sub-ddown">HOME</a></li>
+								<li><a href="#login_form" class="fh5co-sub-ddown">LOGIN</a></li>
+								<li><a href="#/templates/signup.php" class="fh5co-sub-ddown">SIGNUP</a></li>
+								<li><a href="index.php?r=archive/gallery">QUICK PAY</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -78,17 +79,16 @@
     <div class="desc animate-box">
       <h2 id="home_text">IIT Mandi</h2><br>
       <h2 id="home_text">InstiWallet</h2><br>
-            <span><a class="btn btn-primary" href="index.php?r=site/login">Create Wallet</a></span>
-            <p id="already_login">Already have an account? <a href="#" id="login_link">Login</a></p>
-    </div>
+            <span><a class="btn btn-primary" href="index.php?r=site/login">SIGN IN</a></span>
+          </div>
   </div>
-</div>
 
-<div class="container">
-	<div class="col-md-12 text-center animate-box" style="height:100vh">
+</div>
+<div class="container slideanim">
+	<div class="col-md-12 text-center animate-box">
 		<div class="jumbotron" id="login_form">
 			<div class="button button-primary">
-				<form class="form-signin" action="templates/login.php" method="post">
+				<form class="form-signin" action="#" method="post">
 					<div class="form-group">
 						<label for="user_name" class="sr-only">UserName</label>
 						<input type="text" name="user_name" id="login_user_name" class="form-control" placeholder="UserName" required> 
@@ -100,90 +100,83 @@
 			</div>
 		</div>
 	</div>
-	 <div class="col-md-12 text-center animate-box" style="height:100vh">
-    <div class="jumbotron" id="signup_form">
-      <div class="button button-primary">
-        <form class="form-signup" action="templates/insert.php" method="post">
-          <div class="form-group">
-            <label for="name" class="sr-only">Name</label>
-            <input type="text" name="name" id="signup_name" class="form-control" placeholder="Name" required> 
-            <label for="signup_email" class="sr-only">Email</label>
-            <input type="email" name="signup_email" id="signup_user_pass" class="form-control" placeholder="xyz@iitmandi.ac.in" required>
-            <label for="mobile" class="sr-only">Mobile</label>
-            <input type="tel" name="mobile" id="signup_name" class="form-control" placeholder="Mobile" required> 
-            <label for="signup_username" class="sr-only">UserName</label>
-            <input type="text" name="signup_username" id="signup_name" class="form-control" placeholder="UserName" required> 
-            <label for="signup_password" class="sr-only">Password</label>
-            <input type="password" name="signup_password" id="signup_name" class="form-control" placeholder="Password" required> 
-            <br><div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary active">
-                  <input type="radio" name="signup_gender" id="male" value="M" autocomplete="on"> Male
-                </label>
-                <label class="btn btn-primary">
-                  <input type="radio" name="signup_gender" id="female" value="F" autocomplete="off"> Female
-                </label>
-                <label class="btn btn-primary">
-                  <input type="radio" name="signup_gender" id="other" value="O" autocomplete="off"> Other
-                </label>
-              </div><br><br>
-            <center><button id="login_button" class="btn btn-primary" type="submit">Signup</button></center>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+	<div class="col-md-12 text-center animate-box">
+		<div class="jumbotron" id="signup_form">
+			<div class="button button-primary">
+				<form class="form-signup" action="#" method="post">
+					<div class="form-group">
+						<label for="Name" class="sr-only">Name</label>
+						<input type="text" name="Name" id="signup_name" class="form-control" placeholder="Name" required> 
+						<label for="Signup_email" class="sr-only">Email</label>
+						<input type="email" name="Signup_email" id="login_user_pass" class="form-control" placeholder="xyz@iitmandi.ac.in" required>
+						<label for="Mobile" class="sr-only">Mobile</label>
+						<input type="tel" name="Mobile" id="signup_name" class="form-control" placeholder="Mobile" required> 
+						<label class="col-xs-3 control-label">Gender</label>
+				        <div class="col-xs-9">
+				            <div class="btn-group" data-toggle="buttons">
+				                <label class="btn btn-default">
+				                    <input type="radio" name="gender" value="male" /> Male
+				                </label>
+				                <label class="btn btn-default">
+				                    <input type="radio" name="gender" value="female" /> Female
+				                </label>
+				                <label class="btn btn-default">
+				                    <input type="radio" name="gender" value="other" /> Other
+				                </label>
+				            </div>
+				        </div>
+						<center><button id="login_button" class="btn btn-primary" type="submit">Login</button></center>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 
             <div id="fh5co-blog-section">
               <div class="container">
                 <div class="row">
                   <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-                    <h3 style="color:inherit">Why use InstiWallet?</h3>
+                    <h3><a href="index.php?r=about/news" style="color:inherit">LATEST NEWS</a></h3>
                   </div>
                 </div>
               </div>
               <div class="container">
                 <div class="row">
-                  <div class="col-md-1 col-md-1">
-                    <span class="glyphicons glyphicons-search"></span>
-                  </div>
-                  <div class="col-md-5 col-md-5" >
-                    <div class="fh5co-blog animate-box">
-                      <a href="index.php?r=about/shownews&id=101" style="color:inherit"><h3 style="font-size:18px;margin-bottom:10px">Institute Tennis Open 2016 Final</h3> </a>
-                      <p style="font-size:16px;color:inherit;margin-bottom:5px;display:inline;">26/10/16</p><span style="font-size:20px;display:inline;color:green">     &#10004</span>                          <p style="font-size:15px;margin-bottom:10px">Devang Saxena vs Hitesh SharmaIt will be a clash of titans, a gladiatorial contest with both the...</p>                  
-                    </div>
-                  </div>
-
-                  <div class="col-md-6 col-md-6" >
-                    <div class="fh5co-blog animate-box">
-                        <a href="index.php?r=about/shownews&id=100" style="color:inherit"><h3 style="font-size:18px;margin-bottom:10px">Hockey Beginners Camp + Inter IIT trials</h3> </a>
-                        <p style="font-size:16px;color:inherit;margin-bottom:5px;display:inline;">23/10/16</p><span style="font-size:20px;display:inline;color:green">     &#10004</span>                          
-                        <p style="font-size:15px;margin-bottom:10px">"Every Champion was once a beginner who refused to give up"The Hockey Beginners...</p>                          
-                      </div>
-                  </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-6 col-md-6" >
+                                                           <div class="col-md-4 col-md-4" >
+                       <!-- style="height:150px; overflow:hidden" -->
                         <div class="fh5co-blog animate-box">
-                          <a href="index.php?r=about/shownews&id=99" style="color:inherit"><h3 style="font-size:18px;margin-bottom:10px">Hockey Screening | India VS Pakistan </h3> </a>
-                          <p style="font-size:16px;color:inherit;margin-bottom:5px;display:inline;">23/10/16</p><span style="font-size:20px;display:inline;color:green">     &#10004</span>                          <p style="font-size:15px;margin-bottom:10px">When these two teams are on the field it's more than just a game. Let us all come together to watch...</p>
+                          <a href="index.php?r=about/shownews&id=101" style="color:inherit"><h3 style="font-size:18px;margin-bottom:10px">Institute Tennis Open 2016 Final</h3> </a>
+                          <p style="font-size:16px;color:inherit;margin-bottom:5px;display:inline;">26/10/16</p><span style="font-size:20px;display:inline;color:green">     &#10004</span>                          <p style="font-size:15px;margin-bottom:10px">Devang Saxena vs Hitesh SharmaIt will be a clash of titans, a gladiatorial contest with both the...</p>                          <a href="index.php?r=about/shownews&id=101" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-6 col-md-6" >
+                                                            <div class="col-md-4 col-md-4" >
+                       <!-- style="height:150px; overflow:hidden" -->
                         <div class="fh5co-blog animate-box">
-                          <a href="index.php?r=about/shownews&id=99" style="color:inherit"><h3 style="font-size:18px;margin-bottom:10px">Hockey Screening | India VS Pakistan </h3> </a>
-                          <p style="font-size:16px;color:inherit;margin-bottom:5px;display:inline;">23/10/16</p><span style="font-size:20px;display:inline;color:green">     &#10004</span>                          <p style="font-size:15px;margin-bottom:10px">When these two teams are on the field it's more than just a game. Let us all come together to watch...</p>
+                          <a href="index.php?r=about/shownews&id=100" style="color:inherit"><h3 style="font-size:18px;margin-bottom:10px">Hockey Beginners Camp + Inter IIT trials</h3> </a>
+                          <p style="font-size:16px;color:inherit;margin-bottom:5px;display:inline;">23/10/16</p><span style="font-size:20px;display:inline;color:green">     &#10004</span>                          <p style="font-size:15px;margin-bottom:10px">
+
+
+
+
+
+
+
+"Every Champion was once a beginner who refused to give up"The Hockey Beginners...</p>                          <a href="index.php?r=about/shownews&id=100" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
-                  </div>
-                </div>
+                                                            <div class="col-md-4 col-md-4" >
+                       <!-- style="height:150px; overflow:hidden" -->
+                        <div class="fh5co-blog animate-box">
+                          <a href="index.php?r=about/shownews&id=99" style="color:inherit"><h3 style="font-size:18px;margin-bottom:10px">Hockey Screening | India VS Pakistan </h3> </a>
+                          <p style="font-size:16px;color:inherit;margin-bottom:5px;display:inline;">23/10/16</p><span style="font-size:20px;display:inline;color:green">     &#10004</span>                          <p style="font-size:15px;margin-bottom:10px">When these two teams are on the field it's more than just a game. Let us all come together to watch...</p>                          <a href="index.php?r=about/shownews&id=99" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                                    </div>
               </div>
+            </div>
             <div class="fh5co-hero" style="height:400px">
-            <div class="fh5co-overlay" style = "background:url(images/wallet.jpg) no-repeat center center fixed; background-size:cover;height:100%">
+            <div class="fh5co-overlay" style = "background:url(images/coverpics/download.jpg) no-repeat center center fixed; background-size:cover;height:100%">
             </div>
           </div>
 
@@ -208,7 +201,7 @@
                             <p id="event" style ="font-size:15px;">"Every Champion was once a beginner who refused to give up"  The Hockey Beginners Camp is here!  All those who are interested to learn the game as well as who have played before can join as this will also be the trials for Inter IIT.  Register: https://goo.gl/forms/LlsCjf1WQdqBAn0d2 On spot registerations allowed.  Venue: Hockey Field Date: 25th (Tuesday) - 27th (Thursday)  Time: 5:30-6:30 PM  Kindly wear shoes and shorts. Sticks and Balls will be provided.  Let's Hockey!!</p>
                         </div>
                     </div>
-                    <div class="col-md-4 col-md-4" >
+                                        <div class="col-md-4 col-md-4" >
                         <div class="fh5co-blog animate-box">
                            <h3 style="font-size:45px;color:#FCC72C;margin-bottom:5px">22</h3>
                            <h4>Oct</h4>
@@ -285,7 +278,10 @@
 						<p><a href="assets/view/map.jpg" target="_blank">Map</p>
 						</div>
 					</div>
-        </div>
+
+
+
+				</div>
 			</div>
 		</footer>
 
@@ -314,6 +310,6 @@
 
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
-<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Go to the top of the page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
 	</body>
 </html>
