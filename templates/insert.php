@@ -35,16 +35,16 @@
 			echo "UserName already registered!";
 		}
 		$result2 = $conn->query($sql2);
-		if($result2->num_rows == 1)
+		else if($result2->num_rows == 1)
 		{
 			echo "Email already registered!";
 		}
 		$result3 = $conn->query($sql3);
-		if($result3->num_rows == 1)
+		else if($result3->num_rows == 1)
 		{
 			echo "Mobile already registered!";
 		}
-		if($result1->num_rows == 0 && $result2->num_rows == 0 && $result3->num_rows == 0)
+		else if($result1->num_rows == 0 && $result2->num_rows == 0 && $result3->num_rows == 0)
 		{
 			
 			$sql = "INSERT into USER values ('$username','$password','$name','0','".date("Y-m-d")."','".date("Y-m-d H:i:s")."','0','$mobile','$email','$gender','0','0','$g')";

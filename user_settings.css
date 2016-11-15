@@ -19,6 +19,13 @@
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
 }
+
+#show-dialog
+{
+    border-radius:50%;
+    margin:auto;
+}
+
 .demo-avatar {
   width: 48px;
   height: 48px;
@@ -47,6 +54,8 @@ html, body {
 .demo-drawer .demo-navigation {
   z-index: -2;
 }
+
+
 /* END iOS Safari specific workaround */
 .demo-drawer .mdl-menu .mdl-menu__item {
   display: -webkit-flex;

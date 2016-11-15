@@ -31,25 +31,47 @@
 
 	};
 
-	//back to top
+	//back to login
 	$(document).ready(function(){
      $(window).scroll(function () {
             if ($(this).scrollTop() > 50) {
-                $('#back-to-top').fadeIn();
+                $('#back-to-login').fadeIn();
             } else {
-                $('#back-to-top').fadeOut();
+                $('#back-to-login').fadeOut();
             }
         });
         // scroll body to 0px on click
-        $('#back-to-top').click(function () {
-            $('#back-to-top').tooltip('hide');
+        $('#back-to-login').click(function () {
+            $('#back-to-login').tooltip('hide');
             $('body,html').animate({
                 scrollTop: 1000
             }, 800);
             return false;
         });
 
-        $('#back-to-top').tooltip('show');
+        $('#back-to-login').tooltip('show');
+
+});
+
+//back to signup
+	$(document).ready(function(){
+     $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('#back-to-signup').fadeIn();
+            } else {
+                $('#back-to-signup').fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        $('#back-to-signup').click(function () {
+            $('#back-to-signup').tooltip('hide');
+            $('body,html').animate({
+                scrollTop: 2000
+            }, 800);
+            return false;
+        });
+
+        $('#back-to-signup').tooltip('show');
 
 });
 

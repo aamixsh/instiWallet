@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    $_SESSION['sender']=$_POST['user_name'];     
+    $user=$_POST['user_name'];
+    $pass=$_POST['user_pass'];
+?>
 <!doctype html>
 <!--
   Material Design Lite
@@ -47,6 +53,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/searchbar.js"></script>
+    <script src="js/searchbarfunc.js"></script>
     <style>
     #view-source {
       position: fixed;
@@ -63,7 +73,22 @@
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Home</span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdh-expandable-search mdl-cell--hide-phone">
+            <i class="material-icons">search</i>
+            <form method = "post" action="#">
+              <!-- <div class="contentArea"> -->
+                <input type="text" placeholder="Search for friends" class="search" id="inputSearch" size="1">
+                <div id="searchResult"></div>
+              <!-- </div> -->
+            </form>
+          </div>
+          <!-- Displayed on mobile -->
+          <div class="mdl-layout-spacer mdl-cell--hide-tablet mdl-cell--hide-desktop"></div>
+          <!-- Search button -->
+          <button class="mdh-toggle-search mdl-button mdl-js-button mdl-button--icon mdl-cell--hide-tablet mdl-cell--hide-desktop">
+            <i class="material-icons">search</i>
+          </button>
           <div class="mdl-layout-spacer"></div>
           <span class="mdl-layout-title">Sign Out</span>
 
@@ -81,7 +106,7 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="images/user.jpg" class="demo-avatar">
+          <img src="images/profiles/default_pic.jpg" class="demo-avatar">
           <div class="demo-avatar-dropdown">
             <span>hello@example.com</span>
             <div class="mdl-layout-spacer"></div>
@@ -103,7 +128,7 @@
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assessment</i>Statistics</a>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">trending_up</i>Trending</a>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">credit_card</i>Recharge</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i>Settings</a>
+          <a class="mdl-navigation__link" href="user_settings.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i>Settings</a>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">live_help</i>FAQ</a>
           <div class="mdl-layout-spacer"></div>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help</i>Help</a>
@@ -115,28 +140,60 @@
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--8-col mdl-grid">
               <i id="bal_icon" class="material-icons"> account_balance_wallet </i>
-              <text style="font-size: 30px; font-family:'Roboto'; margin-top:80px; margin-left:-80px; color:grey" > Rs 0 </text>
-              <text style="font-size: 15px; font-family:'Roboto'; margin-top:160px; margin-left:-70px; color:grey" >Your Balance </text>
+              <text style="font-size: 30px; font-family:'Roboto'; margin-top:80px; margin-left:-110px; color:grey">
+              <?php  
+                $servername = "localhost";
+                $username = "root";
+                $password = "aayush@123";
+                $db = "InstiWallet";    
+                $conn = new mysqli($servername, $username, $password, $db);
+                // if ($conn->connect_error())
+                // {
+                //   die("Connection failed: " . $conn->connect_error());
+                // }   
+                $sql="SELECT * from USER where user_name='$user'";
+                $result=$conn->query($sql);
+                $row=$result->fetch_assoc();
+                echo "₹ ".$row['balance'];
+              ?>
+
+                
+              </text>
                <svg id="bal_left" fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop" >        
               <use xlink:href="#piechart" mask="url(#piemask)" />
-              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.2" text-anchor="middle" fill="#888" dy="-0.05">82<tspan font-size="0.1" dy="-0.07">%</tspan><tspan x="0.5" y="0.5" font-family="Roboto" font-size="0.1" text-anchor="middle" fill="#888" dy="0.12">of budget used</tspan>
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.2" text-anchor="middle" fill="#888" dy="-0.05">
+                <?php  
+                $servername = "localhost";
+                $username = "root";
+                $password = "aayush@123";
+                $db = "InstiWallet";    
+                $conn = new mysqli($servername, $username, $password, $db);
+                // if ($conn->connect_error())
+                // {
+                //   die("Connection failed: " . $conn->connect_error());
+                // }   
+                $sql="SELECT * from USER where user_name='$user'";
+                $result=$conn->query($sql);
+                $row=$result->fetch_assoc();
+                echo ($row['used_this_month']/$row['budget']*100);
+              ?>
+              <tspan font-size="0.1" dy="-0.07">%</tspan><tspan x="0.5" y="0.5" font-family="Roboto" font-size="0.1" text-anchor="middle" fill="#888" dy="0.12">of budget used</tspan>
             </text>
             </svg>
             </div>
-
             <!-- Textfield with Floating Label -->
             <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid">
-            <form action="#" id="pay_form">
+            <form action="#" id="pay_form" type="GET">
               <div id="input_box" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="sample3">
-                <label class="mdl-textfield__label" for="sample3">Reciever Username</label>
+                <input class="mdl-textfield__input" type="text" id="receiver_username" name="receiver_username">
+                <label class="mdl-textfield__label" for="receiver_username">Reciever Username</label>
               </div>
               <br>
               <!-- Numeric Textfield with Floating Label -->
               <div id="input_box" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-                <label class="mdl-textfield__label" for="sample4">Number...</label>
-                <span class="mdl-textfield__error">Input is not a number!</span>
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="amount" name="amount">
+                <label class="mdl-textfield__label" for="amount">Amount</label>
+                <span class="mdl-textfield__error">Please enter valid amount!</span>
               </div>
               <br>
               <button id="show-dialog" type="button" class="mdl-button mdl-js-button">Pay</button>
@@ -144,33 +201,51 @@
                 <h3 class="mdl-dialog__title">Comment</h3>
                 <div class="mdl-dialog__content">
                   <div id="dialog_textfield" class="mdl-textfield mdl-js-textfield">
-                    <textarea class="mdl-textfield__input" type="text" rows="5"></textarea>
+                    <textarea id="comment" class="mdl-textfield__input" type="text" rows="5" name="comment"></textarea>
                     <label class="mdl-textfield__label" for="comment">Comment..</label>
                   </div>
                 </div>
                 
                 <label class="mdl-radio mdl-js-radio" for="option1">
-                  <input type="radio" id="option1" name="gender" class="mdl-radio__button" checked>
-                  <span class="mdl-radio__label">Transaction</span>
+                  <input type="radio" id="option1" name="type" class="mdl-radio__button" checked value="p">
+                  <span class="mdl-radio__label">Purchase</span>
                 </label>
                 
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option2" style="margin-left: 50px">
-                  <input type="radio" id="option2" name="gender" class="mdl-radio__button" >
-                  <span class="mdl-radio__label">Loan</span>
+                  <input type="radio" id="option2" name="type" class="mdl-radio__button" value="t">
+                  <span class="mdl-radio__label">Transfer</span>
                 </label>
                 
                 <label class="mdl-radio mdl-js-radio" for="option3" style="margin-left:55px">
-                  <input type="radio" id="option3" name="gender" class="mdl-radio__button">
-                  <span class="mdl-radio__label">Other</span>
+                  <input type="radio" id="option3" name="type" class="mdl-radio__button" value="l"> 
+                  <span class="mdl-radio__label">Loan</span>
                </label>      
               
                 <div class="mdl-dialog__actions">
                   <button type="button" class="mdl-button">Cancel</button> 
-                  <button type="button" class="mdl-button">Pay</button>               
+                  <button type="submit" class="mdl-button" id="demo-show-toast" name="pay">Pay</button>
+                  <!-- <button id="demo-show-toast" class="mdl-button mdl-js-button mdl-button--raised" type="button">Show Toast</button> -->
+                  <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+                    <div class="mdl-snackbar__text"></div>
+                    <button class="mdl-snackbar__action" type="button"></button>
+                  </div>
+                  <script>
+                  (function() {
+                    'use strict';
+                    window['counter'] = 0;
+                    var snackbarContainer = document.querySelector('#demo-toast-example');
+                    var showToastButton = document.querySelector('#demo-show-toast');
+                    showToastButton.addEventListener('click', function() {
+                      'use strict';
+                      var data = {message: 'Example Message # ' + ++counter};
+                      snackbarContainer.MaterialSnackbar.showSnackbar(data);
+                    });
+                  }());
+                  </script>               
                 </div>
               </dialog>
               <script>
-                var dialog = document.querySelector('dialog');
+                var dialog = document.querySelector('#dialog');
                 var showDialogButton = document.querySelector('#show-dialog');
                 if (! dialog.showModal) {
                   dialogPolyfill.registerDialog(dialog);

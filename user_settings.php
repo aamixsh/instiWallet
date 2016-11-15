@@ -1,3 +1,14 @@
+<?php
+    session_start();
+?>
+<?php
+    if(isset($_POST['upload_pic'])){
+      move_uploaded_file($_FILES['img_file']['tmp_name'],"images/profiles/".$_FILES['img_file']['name']);
+      $con = mysqli_connect("localhost","root","aayush@123","images/profiles");
+      $q = mysqli_query($con,"UPDATE USER SET profile_pic = '".$_FILES['file']['name']."' WHERE user_name = '".$_SESSION['sender']."'");
+    }
+?>
+
 <!doctype html>
 <!--
   Material Design Lite
@@ -87,7 +98,7 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="images/user.jpg" class="demo-avatar">
+          <img src="images/profiles/default_pic.jpg" class="demo-avatar">
           <div class="demo-avatar-dropdown">
             <span>hello@example.com</span>
             <div class="mdl-layout-spacer"></div>
@@ -133,32 +144,13 @@
             <div class="demo-list-action mdl-list" style="width:55%; margin: auto; margin-top:80px">
               <div class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
-                  <img src="images/user.jpg" id="show-dialog">
+                  <img src="images/profiles/default_pic.jpg" id="show-dialog">
                   <dialog id="dialog" class="mdl-dialog">
                   <h3 class="mdl-dialog__title">Upload a profile pic : </h3>
-                  <form action="" method="POST" enctype="multiparts/form-data">
+                  <form action="" method="POST" enctype="multipart/form-data">
                     <input type="file" name="img_file">      
-                
                     <div class="mdl-dialog__actions">
-                      <button type="submit" class="mdl-button" id="demo-show-toast" name="pay">Pay</button>
-                      <!-- <button id="demo-show-toast" class="mdl-button mdl-js-button mdl-button--raised" type="button">Show Toast</button> -->
-                      <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
-                        <div class="mdl-snackbar__text"></div>
-                        <button class="mdl-snackbar__action" type="button"></button>
-                      </div>
-                      <script>
-                      (function() {
-                        'use strict';
-                        window['counter'] = 0;
-                        var snackbarContainer = document.querySelector('#demo-toast-example');
-                        var showToastButton = document.querySelector('#demo-show-toast');
-                        showToastButton.addEventListener('click', function() {
-                          'use strict';
-                          var data = {message: 'Example Message # ' + ++counter};
-                          snackbarContainer.MaterialSnackbar.showSnackbar(data);
-                        });
-                      }());
-                      </script>               
+                      <button type="submit" class="mdl-button" id="demo-show-toast" name="upload_pic">Upload</button>              
                     </div>
                   </form>
                 </dialog>

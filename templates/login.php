@@ -1,4 +1,5 @@
 <?php
+		session_start();
 		$servername = "localhost";
 		$username = "root";
 		$password = "aayush@123";
@@ -14,8 +15,8 @@
 		}
 		echo "<div id='content'>";
 		echo "<center><br>";
-		$username=$_POST['user_name'];
-		$password=$_POST['user_pass'];
+		$username=$_SESSION['username']=$_POST['user_name'];
+		$password=$_SESSION['password']=$_POST['user_pass'];
 		$sql = "SELECT * FROM USER where user_name = '$username' and password= '$password'";
 		$result = $conn->query($sql);
 		if($result->num_rows == 1)
