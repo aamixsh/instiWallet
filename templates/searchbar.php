@@ -20,12 +20,13 @@
 
 			$i++;
 ?>
-	<form action="profile.php" method="POST">
+	<form action="profile.php" method="POST" style="margin:auto">
 		<div class="display_box" align="left">
-		<input display="hidden" value="<?php echo $name; ?>" name="user">
+		<input value="<?php echo $name; ?>" name="user">
 		<img src="<?php echo $profile_pic; ?>" style="width:50px; height:50px; float:left; margin-right:6px;"/><span class="name">
 		<span style="font-size:9px; color:#999999"></span></div>
 	</form>
+	<br>
 <?php
 		}
 	}
